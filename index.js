@@ -4,7 +4,7 @@ document.querySelector("#search").addEventListener("click", () => {
 
   const searchValue = document.querySelector("#my-text").value;
 
-  const url = `https://www.googleapis.com/youtube/v3/search?key=AIzaSyBL7tmoBcFl44584VA4eC7RrVu_izPyyLM&part=snippet&q=${searchValue}&maxResults=50`;
+  const url = `https://www.googleapis.com/youtube/v3/search?key=AIzaSyBL7tmoBcFl44584VA4eC7RrVu_izPyyLM&part=snippet&q=${searchValue}&maxResults=25`;
 
   //const url = `https://www.googleapis.com/youtube/v3/search?key=AIzaSyCmu9P80H5X-la5DojgvDitVo9FcPXWmJ4&part=Snippet&q="marbel"&maxResults=50`;
   xhr.open("GET", url);
@@ -17,7 +17,7 @@ document.querySelector("#search").addEventListener("click", () => {
       let template = "";
       for (let i = 0; i < response.items.length; i++) {
         template += `
-                    <div class="video-items" style="width: 20%; margin: 1.2em;">
+                    <div class="video-items" style="width: 20%; margin: 1.2em;border:5px solid grey;border-radius:5%;">
                         <a href="https://www.youtube.com/watch?v=${response.items[i].id.videoId}" target="_blank">
                         <img style="width: 100%" src="${response.items[i].snippet.thumbnails.high.url}" />
                         </a>
